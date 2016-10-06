@@ -1,5 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Matrix Inversion Cache
+## Creates a new matrix object, makeCacheMatrix, that takes as a parameter a 
+## matrix. This new object provides getters and setters to set/get the matrix as
+## well as the inverse. cacheSolve is a function that takes the new matrix 
+## object and either calculates the inverse if it does not already exist or
+## returns the cached inverse that was previously calculated.
+##
+## Two test functions are provided, one to test the makeCacheMatrix and 
+## cacheSolve implementation and another to calculate the time savings of 
+## caching the inverse of a 1000 x 1000 matrix.
 
 ## `makeCacheMatrix`: This function creates a special "matrix" object
 ## that can cache its inverse.
