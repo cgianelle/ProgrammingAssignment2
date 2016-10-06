@@ -79,7 +79,10 @@ testCacheMatrix <- function() {
     
     message("TEST PASSED")
 }
-
+## 'testCacheMatrixPerformance': a silly test that generates a 1000 x 1000 
+## matrix using rnorm to populate. This then calculates the time to generate
+## an inverse and then compares that to the time to fetch the inverse. Fetching
+## shoul take as close to 0 as possible.
 testCacheMatrixPerformance <- function() {
     #create a large matrix
     largeMatrix <- matrix(rnorm(1000000, mean = 5), nrow = 1000, ncol = 1000)
@@ -99,8 +102,9 @@ testCacheMatrixPerformance <- function() {
     
     if (identical(i, i2)) {
         message("The calculated and cached inverses are identical")
+        message("Time difference in calculating vs. retrieving cached data is ",
+                round(e[["elapsed"]] - e2[["elapsed"]],2), "s")
+    } else {
+        message("Something is wrong, the inverses are not identical")
     }
-    
-    
-    
 }
