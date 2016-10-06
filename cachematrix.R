@@ -77,6 +77,24 @@ testCacheMatrix <- function() {
         return(NULL)
     }
     
+    #test5: if I create a new matrix, does it show that the inverse is null
+    #before calculating it
+    matrixCacheObj2 <- makeCacheMatrix(
+        matrix(c(10,100,14,196), nrow = 2, ncol = 2))
+    
+    if (!is.null(matrixCacheObj2$getInverse())) {
+        message("Test 5: Is the new matrix inverse NULL? NO")
+        return(NULL)
+    }
+    
+    #test6: does the new inverse equal the old inverse?
+    i3 <- cacheSolve(matrixCacheObj2)
+    if (identical(i3, i)) {
+        message("Test 6: does the new inverse differ from the old inverse? NO")
+        return(NULL)
+    }
+    
+    
     message("TEST PASSED")
 }
 ## 'testCacheMatrixPerformance': a silly test that generates a 1000 x 1000 
